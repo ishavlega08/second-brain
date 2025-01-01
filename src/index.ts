@@ -1,10 +1,12 @@
 import express from "express";
 import dotenv from "dotenv";
 import { connectDB } from "./config/db";
+import userRouter from "./features/user/routes";
+import contentRouter from "./features/content/routes";
+import brainRouter from "./features/brain/routes";
 
 dotenv.config();
 const PORT = process.env.PORT || 3000;
-
 
 const app = express();
 app.use(express.json());
@@ -12,6 +14,10 @@ app.use(express.json());
 app.get("/", (req, res) => {
     res.send("<h1>Server is running...</h1>");
 });
+
+app.use("/api/v0/user", userRouter);
+app.use("/api/v0/content", contentRouter);
+app.use("/api/v0/brain", brainRouter);
 
 connectDB()
     .then(() => {
