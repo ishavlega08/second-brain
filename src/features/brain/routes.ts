@@ -1,9 +1,11 @@
 import { Router } from "express";
-import { createSharedLink, getSharedLink } from "./controller";
+import { createSharedLink, getAllSharedLinks, getSharedLink } from "./controller";
+import { isAuthenticated } from "../middlewares/authMiddleware";
 
 const brainRouter = Router();
 
-brainRouter.route("/share").post(createSharedLink);
-brainRouter.route("/:shareLink").get(getSharedLink);
+brainRouter.route("/share").post(isAuthenticated, createSharedLink);
+brainRouter.route("/allSharedLinks").get(getAllSharedLinks);
+brainRouter.route("/:sharedHash").get(getSharedLink);
 
 export default brainRouter;
