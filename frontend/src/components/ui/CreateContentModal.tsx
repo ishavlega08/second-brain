@@ -1,5 +1,6 @@
 import { CrossIcon } from "../../icons/CrossIcon"
 import { Button } from "./Button"
+import { Input } from "./Input"
 
 export const CreateContentModal = ({open, onClose}) => {
     return <div>
@@ -20,16 +21,10 @@ export const CreateContentModal = ({open, onClose}) => {
                     </div>
 
                     <div className="mt-5 flex justify-center">
-                        <Button variant="primary" title="Submit" size="md" />
+                        <Button variant="full-width" title="Submit" size="md" />
                     </div>
                 </div>
             </div>
         )}
-    </div>
-}
-
-const Input = ({placeholder, onChange}: {placeholder: string, onChange: () => void}) => {
-    return <div>
-        <input type="text" placeholder={placeholder}  className="px-4 py-2 border rounded-lg mt-3 w-full outline-none" onChange={onChange}/>
     </div>
 }

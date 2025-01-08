@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
 
-type Variants = "primary" | "secondary";
+type Variants = "primary" | "secondary" | "full-width";
 export type Sizes = "sm" | "md" | "lg";
 
 interface ButtonProps {
@@ -10,11 +10,13 @@ interface ButtonProps {
     startIcon?: ReactElement;
     endIcon?: ReactElement;
     onClick?: () => void;
+    loading?: boolean;
 }
 
 const variantStyles: Record<Variants, string> = {
     "primary": "bg-customPurple-600 text-white",
-    "secondary": "bg-customPurple-400 text-customPurple-600"
+    "secondary": "bg-customPurple-400 text-customPurple-600",
+    "full-width": "bg-customPurple-600 text-white w-full"
 }
 
 const sizeStyles: Record<Sizes, string> = {
@@ -23,10 +25,10 @@ const sizeStyles: Record<Sizes, string> = {
     "lg": "py-3 pl-5 pr-6"
 }
 
-const defaultStyles = "rounded-md flex items-center font-light"
+const defaultStyles = "rounded-lg flex items-center justify-center font-light"
 
 export const Button = (props: ButtonProps) => {
-    return <button onClick={props.onClick} className={`${variantStyles[props.variant]} ${defaultStyles} ${sizeStyles[props.size]}`}>
+    return <button onClick={props.onClick} className={`${variantStyles[props.variant]} ${defaultStyles} ${sizeStyles[props.size]} ${props.loading ? "opacity-45": ""}`}>
         {props.startIcon ? <div className="pr-2">{props.startIcon}</div> : null} {props.title} {props.endIcon}
     </button>
 }
