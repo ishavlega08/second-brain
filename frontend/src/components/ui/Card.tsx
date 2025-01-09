@@ -16,7 +16,7 @@ export const Card = ({title, link, type}: CardProps) => {
                 {title}
             </div>
             <div className="flex text-gray-400 items-center">
-                <div className="pr-5">
+                <div className="pr-2">
                     <a href={link} target="_blank">
                         <ShareIcon size="md" />
                     </a>

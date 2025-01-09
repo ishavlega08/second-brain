@@ -19,7 +19,7 @@ export const Signin = () => {
         });
         
         const jwt = response.data.token;
-        localStorage.setItem("authorization", jwt);
+        localStorage.setItem("token", jwt);
         // redirect the user to the dashboard
         navigate("/dashboard");
     }
