@@ -2,7 +2,7 @@ import { useRef } from "react"
 import { Button } from "../components/ui/Button"
 import { Input } from "../components/ui/Input"
 import axios from "axios";
-import { BACKEND_URL } from "../config";
+import { BACKEND_URL } from "../constants/constants";
 import { useNavigate } from "react-router-dom";
 
 export const Signin = () => {
@@ -13,7 +13,7 @@ export const Signin = () => {
     async function signin() {
         const username = usernameRef.current?.value;
         const password = usernameRef.current?.value;
-        const response = await axios.post(`${BACKEND_URL}/api/v0/user/signin`, {
+        const response = await axios.post(`${BACKEND_URL}/user/signin`, {
             username,
             password
         });

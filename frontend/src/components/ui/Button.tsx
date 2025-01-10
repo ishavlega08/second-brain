@@ -6,9 +6,8 @@ export type Sizes = "sm" | "md" | "lg";
 interface ButtonProps {
     variant: Variants;
     size: Sizes;
-    title: string;
+    title?: string;
     startIcon?: ReactElement;
-    endIcon?: ReactElement;
     onClick?: () => void;
     loading?: boolean;
 }
@@ -29,6 +28,6 @@ const defaultStyles = "rounded-lg flex items-center justify-center font-light"
 
 export const Button = (props: ButtonProps) => {
     return <button onClick={props.onClick} className={`${variantStyles[props.variant]} ${defaultStyles} ${sizeStyles[props.size]} ${props.loading ? "opacity-45": ""}`}>
-        {props.startIcon ? <div className="pr-2">{props.startIcon}</div> : null} {props.title} {props.endIcon}
+        {props.startIcon ? <div className="pr-2">{props.startIcon}</div> : null} {props.title}
     </button>
 }
