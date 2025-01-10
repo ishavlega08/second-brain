@@ -5,7 +5,7 @@ import { TagModel } from "./tagModel";
 
 export const createContent = async (req: CustomRequest, res: Response) => {
     try {
-        const { title, link, tags, type } = req.body;
+        const { title, link, tags, type, content } = req.body;
 
         let tagTitles: string[] = [];
         if(tags && tags.length !== 0) {
@@ -30,6 +30,7 @@ export const createContent = async (req: CustomRequest, res: Response) => {
             link,
             tags: tagTitles,
             type,
+            content,
             userId: req.userId
         });
 
@@ -86,7 +87,7 @@ export const getContent = async (req: CustomRequest, res: Response) => {
 
 export const updateContent = async (req: CustomRequest, res: Response) => {
     try {
-        const { contentId, title, link, tags, type } = req.body;
+        const { contentId, title, link, tags, type, content } = req.body;
 
         let tagTitles: string[] = [];
         if(tags && tags.length !== 0) {
@@ -113,7 +114,8 @@ export const updateContent = async (req: CustomRequest, res: Response) => {
                     title,
                     link,
                     tags: tagTitles,
-                    type
+                    type,
+                    content
                 },
             },
         )

@@ -10,8 +10,7 @@ const ContentTypes = [
     "DOCUMENT",
     "LINK",
     "TAG",
-    "IMAGE",
-    "VIDEO"
+    "CONTENT"
 ]
 
 const createRandomHash = (length: number) => {
