@@ -9,7 +9,6 @@ const ContentSchema = new Schema(
         },
         link: {
             type: String,
-            required: true
         },
         type: {
             type: String,

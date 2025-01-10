@@ -84,7 +84,7 @@ export const getSharedLink = async (req: Request, res: Response) => {
         }
 
         // I want to share my brain to someone, so i want to get my content
-        const content = await ContentModel.findOne({ userId: link.userId })
+        const content = await ContentModel.find({ userId: link.userId })
             .populate({
                 path: "userId",
                 select: "username"
