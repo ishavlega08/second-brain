@@ -25,7 +25,7 @@ export const CreateContentModal = ({open, onClose}: CreateContentModalProps) => 
     const linkRef = useRef<HTMLInputElement>();
     const contentRef = useRef<HTMLInputElement>();
 
-    const [type, setType] = useState("Select Type");
+    const [type, setType] = useState(ContentType.Twitter);
     const [tags, setTags] = useState<string[]>([]);
     
     const addContent = async () => {
@@ -63,11 +63,11 @@ export const CreateContentModal = ({open, onClose}: CreateContentModalProps) => 
     return <div>
         {open && ( 
             <div className="h-screen w-screen bg-slate-500 fixed top-0 left-0 bg-opacity-70 flex justify-center items-center">
-                <div className="max-w-80 w-full rounded-xl bg-white p-4 bg">
+                <div className="max-w-80 w-full rounded-xl bg-white p-4">
                     <div className="flex justify-between items-center">
                         <h1 className="text-xl font-semibold">Create Content</h1>
                         
-                        <div onClick={onClose} className="cursor-pointer rounded-md p-0.5 bg-customPurple-400 text-customPurple-600">
+                        <div onClick={onClose} className="cursor-pointer rounded-md p-0.5 bg-customPurple-400 text-customPurple-600 hover:text-white hover:bg-customPurple-600 transition-colors duration-100">
                             <XMarkIcon className="w-5 h-5" />
                         </div>
                     </div>

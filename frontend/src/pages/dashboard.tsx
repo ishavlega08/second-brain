@@ -7,6 +7,7 @@ import { PlusIcon } from "lucide-react";
 import { ShareIcon } from "@heroicons/react/24/outline";
 import axios from "axios";
 import { BACKEND_URL } from "../constants/constants";
+import { ShareBrain } from "../components/ui/ShareBrainModal";
 
 interface Content {
   _id: string;
@@ -20,6 +21,7 @@ interface Content {
 
 export const Dashboard = () => {
   const [modalOpen, setModalOpen] = useState(false);
+  const [shareModalOpen, setShareModal] = useState(false);
   const [contents, setContents] = useState<Content[]>([]);
 
   useEffect(() => {
@@ -76,6 +78,9 @@ export const Dashboard = () => {
               size={"md"}
               title={"Share Brain"} 
               startIcon={<ShareIcon className="w-5 h-5" />}
+              onClick={() => {
+                setShareModal(true);
+              }}
             />
             <Button 
               variant={"primary"} 
@@ -100,9 +105,15 @@ export const Dashboard = () => {
         <CreateContentModal
           open={modalOpen}
           onClose={() => {
-          setModalOpen(false);
-          fetchContents(); // Refresh contents after closing modal
-        }}
+            setModalOpen(false);
+            fetchContents(); // Refresh contents after closing modal
+          }}
+        />
+        <ShareBrain 
+          open={shareModalOpen}
+          onClose={() => {
+            setShareModal(false);
+          }}
         />
       </div>
     </div>

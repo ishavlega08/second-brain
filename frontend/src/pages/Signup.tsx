@@ -3,7 +3,7 @@ import { Button } from "../components/ui/Button"
 import { Input } from "../components/ui/Input"
 import axios from "axios";
 import { BACKEND_URL } from "../constants/constants";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const Signup = () => {
     const usernameRef = useRef<HTMLInputElement>();
@@ -41,7 +41,10 @@ export const Signup = () => {
                 </div>
             </div>
 
-            <p className="mt-3 text-gray-400">Already signed up? Signin</p>
+            <p className="mt-3 text-gray-400">
+                Already signed up!
+                <Link to={"/signin"} className="cursor-pointer text-customPurple-500"> Signin</Link>    
+            </p>
         </div>
     </div>
 }

@@ -15,7 +15,7 @@ interface ButtonProps {
 const variantStyles: Record<Variants, string> = {
     "primary": "bg-customPurple-600 text-white",
     "secondary": "bg-customPurple-400 text-customPurple-600",
-    "full-width": "bg-customPurple-600 text-white w-full"
+    "full-width": "bg-customPurple-500 text-white hover:bg-customPurple-600 transition-colors duration-150 w-full"
 }
 
 const sizeStyles: Record<Sizes, string> = {

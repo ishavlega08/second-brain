@@ -21,7 +21,7 @@ export const createSharedLink = async (req: CustomRequest, res: Response) => {
             }
 
             const hash = createRandomHash(10);
-            console.log(`Hash: ${hash}`);
+            // console.log(`Hash: ${hash}`);
     
             const newLink = await LinkModel.create({
                 userId: req.userId,
