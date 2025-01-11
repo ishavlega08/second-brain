@@ -5,12 +5,14 @@ import { Dashboard } from "./pages/dashboard"
 import { SharedBrain } from "./pages/sharedBrain"
 import { AuthRedirect } from "./components/AuthRedirect"
 import { ProtectedRoute } from "./components/ProtectedRoute"
+import { Home } from "./pages/home"
 
 function App() {
 
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route
           path="/signin"
           element={

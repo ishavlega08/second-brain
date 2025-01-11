@@ -16,10 +16,9 @@ export default {
         },
         customGrey: {
           500: "#dddddd"
-        },
-      }
+        }
+      }  
     },
   },
   plugins: [],
 }
-
