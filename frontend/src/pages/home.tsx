@@ -1,13 +1,14 @@
 import { BookmarkIcon, ClipboardIcon, CodeBracketIcon } from "@heroicons/react/24/solid";
 import { ReactElement } from "react";
+import { Link } from "react-router-dom";
 
 export const Home = () => {
-
     return (
         <div className="bg-gradient-to-br from-neutral-50 to-sky-50 h-screen w-screen">
-            <div>
+            <div className="fixed">
                 <NavBar />
                 <Hero />
+                <Footer />
             </div>
         </div>
     );
@@ -18,15 +19,21 @@ const NavBar = () => {
         <h1 className="ml-6 text-2xl text-blue-700 font-semibold">Second Brain</h1>
 
         <div>
-            <button className="text-blue-600 border-blue-600 font-normal text-lg w-24 p-2 mr-3 rounded-lg hover:border">
+            <Link to={"/signin"} className="text-blue-600 border-blue-600 font-normal text-lg w-24 p-2 mr-3 rounded-lg hover:border">
                 Sign In
-            </button>
+            </Link>
 
-            <button className="bg-blue-600 text-white text-lg w-24 p-2 mr-6 rounded-lg hover:bg-blue-700 transition-colors duration-150">
-                Sign Up
-            </button>
+            <Link to={"/signup"} className="bg-blue-600 text-white font-light text-lg w-24 p-2 mr-6 rounded-lg hover:bg-blue-700 transition-colors duration-150">
+                    Sign Up
+            </Link>
         </div>    
     </nav>
+}
+
+const Footer = () => {
+    return <div className="flex justify-center items-center border-t h-16 w-full fixed bottom-0 bg-white">
+        <p className="text-gray-400 text-lg font-light">© 2024 SecondBrain. All rights reserved.</p>
+    </div>
 }
 
 const Hero = () => {
@@ -42,9 +49,11 @@ const Hero = () => {
             </p>
 
             <div className="mt-10">
-                <button className="bg-blue-600 text-white text-lg w-44 p-3 rounded-lg hover:bg-blue-700 transition-colors duration-150">
-                    Get Started
-                </button>
+                <Link to={"/signin"}>
+                    <button className="bg-blue-600 text-white text-lg w-44 p-3 rounded-lg hover:bg-blue-700 transition-colors duration-150">
+                        Get Started
+                    </button>
+                </Link>
             </div>
         </div>
 
